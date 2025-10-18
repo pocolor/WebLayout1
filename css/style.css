@@ -72,7 +72,31 @@ body {
   }
 }
 
-@media (width <= 50rem) {
+.hidden {
+  display: none;
+}
+
+.small-navigation {
+  border-bottom: 1px solid black;
+
+  nav ul {
+    list-style: none;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+
+    li a {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+
+      font-size: var(--top-bar-navigation-font-size);
+    }
+  }
+}
+
+@media (max-width: 50rem) {
   .top-bar-container .navigation nav {
     ul {
       display: none;

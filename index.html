@@ -5,31 +5,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fr real moodle</title>
-  <link rel="icon" href="img/logo-moodle.png" type="image/x-icon"/>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="./img/logo-moodle.png" type="image/x-icon"/>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
-
-<script>
-
-</script>
 
 <body>
 <div class="top-bar-container" id="top">
   <div class="logo">
-    <img src="img/SPSE-Jecna-logo.png" alt="SPSE Jecna">
+    <img src="./img/SPSE-Jecna-logo.png" alt="SPSE Jecna">
   </div>
   <div class="navigation">
     <nav>
       <ul>
-        <li><a href="home.html" target="_blank">Home</a></li>
+        <li><a href="./home.html" target="_blank">Home</a></li>
         <li><a href="#footer">About</a></li>
         <li><a onclick="alert('Polo')">Marco</a></li>
       </ul>
-      <button>
-        <img src="img/hamburger-menu.png" alt="Menu">
+      <button onclick="document.querySelector('.small-navigation').classList.toggle('hidden')">
+        <img src="./img/hamburger-menu.png" alt="Menu">
       </button>
     </nav>
   </div>
+</div>
+
+<div class="small-navigation hidden">
+  <nav>
+    <ul>
+      <li><a href="./home.html" target="_blank">Home</a></li>
+      <li><a href="#footer">About</a></li>
+      <li><a onclick="alert('Polo')">Marco</a></li>
+    </ul>
+  </nav>
 </div>
 
 <div class="main-container">
@@ -46,8 +52,17 @@
 </div>
 
 <a class="top-scroll-btn" href="#top">
-  <img src="img/arrow-up.png" alt="Top">
+  <img src="./img/arrow-up.png" alt="Top">
 </a>
+
+<script>
+  window.addEventListener('resize', () => {
+    if (!window.matchMedia("(max-width: 50rem)").matches) {
+      document.querySelector('.small-navigation').classList.add('hidden');
+    }
+  });
+</script>
+
 </body>
 
 </html>
