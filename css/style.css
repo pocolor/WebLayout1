@@ -9,6 +9,15 @@ body {
   margin: 0;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+  padding: 0;
+  margin: 0 0 1em;
+}
+
+.hidden {
+  display: none;
+}
+
 /**************************************************/
 
 :root {
@@ -34,7 +43,7 @@ body {
     margin: var(--top-bar-elements-margin);
   }
 
-  .logo img {
+  .logo > img {
     height: var(--top-bar-logo-height);
     width: auto;
   }
@@ -49,7 +58,7 @@ body {
       flex-flow: row nowrap;
       gap: var(--top-bar-navigation-text-gap);
 
-      li a {
+      li > a {
         color: black;
         text-decoration: none;
         cursor: pointer;
@@ -72,21 +81,17 @@ body {
   }
 }
 
-.hidden {
-  display: none;
-}
-
 .small-navigation {
   border-bottom: 1px solid black;
 
-  nav ul {
+  nav > ul {
     list-style: none;
 
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
 
-    li a {
+    li > a {
       color: black;
       text-decoration: none;
       cursor: pointer;
@@ -96,8 +101,87 @@ body {
   }
 }
 
+/***/
+
+.main-container {
+  display: flex;
+  flex-flow: row nowrap;
+
+  border-bottom: 1px solid black;
+
+  .sidebar {
+    border-right: 1px solid black;
+
+    .close-btn-container {
+      padding: 20px;
+      /*box-shadow: 0 5px 20px -10px black;*/
+
+      img {
+        height: 20px;
+        cursor: pointer;
+      }
+    }
+
+    .sidebar-content {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1vh;
+
+      padding: 20px;
+      width: 300px;
+    }
+  }
+
+  .main-content > main {
+    padding: 100px;
+  }
+}
+
+.sidebar-show {
+  position: fixed;
+  left: 20px;
+  bottom: 120px;
+
+  cursor: pointer;
+
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  img {
+    height: 50px;
+  }
+}
+
+/***/
+
+.footer-container > footer {
+  padding: 20px;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+/***/
+
+.top-scroll-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  cursor: pointer;
+
+  img {
+    height: 50px;
+  }
+}
+
+/**************************************************/
+
 @media (max-width: 50rem) {
-  .top-bar-container .navigation nav {
+  .top-bar-container > .navigation nav {
     ul {
       display: none;
     }
@@ -105,23 +189,5 @@ body {
     button {
       display: block;
     }
-  }
-}
-
-.main-container {
-  display: grid;
-  grid-template-columns: clamp(300px, 30vw, 500px) 1fr;
-}
-
-/**************************************************/
-
-.top-scroll-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-
-  img {
-    height: 50px;
-    width: auto;
   }
 }
